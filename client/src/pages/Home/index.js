@@ -12,7 +12,7 @@ function Home() {
   }
 
   async function search() {
-    console.log('TEstando git')
+    console.log('')
   }
 
   return (
