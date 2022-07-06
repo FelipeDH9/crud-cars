@@ -51,16 +51,20 @@
 }
 
 
-#add-car-button{
-  background-color: rgb(128,223,206);
-  border: none;
-  cursor: pointer;
+.button{
   font-size: 1.5rem;
+  text-align: center;
   padding: 10px 30px;
-  border-radius: 1.5rem;
   margin-top: 1.5rem;
   width: 100%;
   max-width: 58rem;
+  
+  border-radius: 1.5rem;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: rgb(128,223,206);
+  color: rgb(0,0,0);
 }
 
 .center{

@@ -1,0 +1,57 @@
+/* Go Home Button */
+.go-home-button{
+  font-size: 2rem;
+  color: rgb(0,0,0);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.go-home-button:hover{
+  color: rgb(128,223,206);
+}
+
+
+.register-fields{
+  display: flex;
+  flex-direction: column;
+
+  background-color:rgb(249,249,249);
+
+
+  padding: 2rem 1rem;
+}
+
+.register-fields input, select{
+  /* height: 2.5rem; */
+  border-radius: 2.5rem;
+  border: 1px solid rgb(0,0,0);
+  padding: 10px;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.register-fields label{
+  margin-top: 1rem;
+  font-size: 1.4rem;
+}
+
+
+@media(min-width: 767px){
+  .register-fields{
+    background-color: rgb(236,236,236);
+    /* padding: 2rem 5rem; */
+    margin: 2rem 3rem;
+  }
+
+  .register-fields div{
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+@media(min-width: 1024px){
+  .register-fields{
+    padding: 2rem 7rem;
+    margin: 2rem 3rem;
+  }
+}

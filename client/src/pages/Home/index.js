@@ -48,16 +48,21 @@ function Home() {
         </div>
 
         <div className="center">
-          <button
-            id="add-car-button"
-            onClick={() => {
-              alert(
-                'Irá abrir um formulario para add o veiculo no bd e e criar um cartão'
-              )
-            }}
-          >
+          <a href="/car-register" className="button">
             ADICIONAR
-          </button>
+          </a>
+        </div>
+
+        <div className="favorites">
+          <h2>Meus Favoritos</h2>
+          <p>
+            Map para pegar apenas os que são favoritos, será uma propriedade do
+            objeto na database
+          </p>
+        </div>
+        <div className="my-car-announces">
+          <h2>Meus Anúncios</h2>
+          <p>Map para pegar todos os anuncios</p>
         </div>
       </div>
     </div>
