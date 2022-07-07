@@ -49,7 +49,7 @@ function Home() {
 
         <div className="center">
           <a href="/car-register" className="button">
-            ADICIONAR
+            <strong>+</strong> ADICIONAR
           </a>
         </div>
 
