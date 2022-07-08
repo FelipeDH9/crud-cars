@@ -12,7 +12,15 @@ root.render(
     <Routes>
       <Route path="/" exact element={<Home />} />
       <Route path="car-register" element={<CarRegister />} />
-      <Route path="*" element={<h1>Página não encontrada</h1>} />
+      <Route
+        path="*"
+        element={
+          <>
+            <h1>Página não encontrada</h1>
+            <a href="/">Voltar para página inicial</a>
+          </>
+        }
+      />
     </Routes>
   </Router>
 )

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import './styles.css'
 import axios from 'axios'
+import './styles.css'
 
 import { IoMdArrowBack } from 'react-icons/io'
 
@@ -27,6 +27,7 @@ function CarRegister() {
       .then(response => {
         console.log(response)
       })
+    window.location.href = '/'
   }
 
   return (
@@ -83,23 +84,26 @@ function CarRegister() {
             <label>Cor:</label>
             <select onChange={event => setColor(event.target.value)}>
               <option name="empty">-</option>
-              <option name="white" value={'Branco'}>
+              <option name="white" value={'#ffffff'}>
                 Branco
               </option>
-              <option name="black" value={'Preto'}>
+              <option name="black" value={'#646363'}>
                 Preto
               </option>
-              <option name="silver" value={'Prata'}>
+              <option name="silver" value={'#c0c0c0'}>
                 Prata
               </option>
-              <option name="red" value={'Vermelho'}>
+              <option name="red" value={'#f84242dc'}>
                 Vermelho
               </option>
-              <option name="blue" value={'Azul'}>
+              <option name="blue" value={'#377cfc'}>
                 Azul
               </option>
-              <option name="yellow" value={'Amarelo'}>
+              <option name="yellow" value={'#f3f57d'}>
                 Amarelo
+              </option>
+              <option name="green" value={'#65b962'}>
+                Verde
               </option>
             </select>
 

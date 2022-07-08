@@ -10,18 +10,15 @@ import './styles.css'
 
 function Home() {
   const [cars, setCars] = useState([])
-  const [favoriteCars, setFavoriteCars] = useState([])
 
   function searchDatabase() {
     axios.get('http://localhost:4731/get-data').then(response => {
-      console.log(response.data)
       setCars(response.data)
-      console.log('cars', cars)
     })
-    // nessa função vamos buscar na database inteira e atribuir as linhas dentro desse array
-    // se tal linha tiver o is_favorite como 1 então ela será colocada dentro do estado favoriteCars, que será mapeada na seção favoritos
-    // essa função será feita no useEffect, para pegar na database sempre que atualizar a página
-    console.log('buscar no banco de dados')
+  }
+
+  function handleEdit() {
+    axios.put('http://localhost:4731/edit', {})
   }
 
   useEffect(() => {
@@ -68,26 +65,25 @@ function Home() {
 
         <div className="favorites">
           <h2 className="title">Meus Favoritos</h2>
-          <p>
-            Map para pegar apenas os que são favoritos, será uma propriedade do
-            objeto na database
-          </p>
           <div className="cards-wrapper">
-            {cars?.map(
-              car =>
-                car.is_favorite && (
-                  <CarCard
-                    key={car.id}
-                    name={car.name}
-                    price={car.price}
-                    description={car.description}
-                    year={car.year}
-                    color={car.color}
-                  />
-                )
+            {cars?.map(car =>
+              car?.is_favorite == 1 ? (
+                <FavoriteCarCard
+                  key={car.id}
+                  id={car.id}
+                  name={car.name}
+                  price={car.price}
+                  description={car.description}
+                  year={car.year}
+                  color={car.color}
+                />
+              ) : (
+                ''
+              )
             )}
           </div>
         </div>
+
         <div className="my-car-announces">
           <h2 className="title">Meus Anúncios</h2>
           <div className="cards-wrapper">
@@ -95,7 +91,8 @@ function Home() {
               car =>
                 !car.is_favorite && (
                   <CarCard
-                    key={car.car_id}
+                    key={car.id}
+                    id={car.id}
                     name={car.name}
                     price={car.price}
                     description={car.description}

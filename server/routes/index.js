@@ -25,11 +25,11 @@ router.post('/register', function (request, response) {
     }
 
     if (name && brand && year && description && price && car_id && color) {
-      const sql =
+      const SQL =
         'INSERT INTO car_announcements (name, brand, year, description, price, car_id, color) VALUES ( ?, ?, ?, ?, ?, ?, ?)'
 
       database.query(
-        sql,
+        SQL,
         [name, brand, year, description, price, car_id, color],
         (error, result) => {
           console.log(error)
@@ -43,8 +43,8 @@ router.post('/register', function (request, response) {
 })
 
 router.get('/get-data', function (request, response) {
-  const sql = 'SELECT * from car_announcements'
-  database.query(sql, (error, result) => {
+  const SQL = 'SELECT * from car_announcements'
+  database.query(SQL, (error, result) => {
     if (error) {
       console.log(error)
     } else {
@@ -53,4 +53,40 @@ router.get('/get-data', function (request, response) {
   })
 })
 
+router.post('/favorite/:id', (req, res) => {
+  const { id } = req.params
+
+  const SQL = 'UPDATE car_announcements SET is_favorite = 1 WHERE id = ?'
+
+  database.query(SQL, id, (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(result)
+  })
+})
+
+router.post('/remove-favorite/:id', (req, res) => {
+  const { id } = req.params
+
+  const SQL = 'UPDATE car_announcements SET is_favorite = 0 WHERE id = ?'
+
+  database.query(SQL, id, (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(result)
+  })
+})
+
+router.post('/delete/:id', (req, res) => {
+  const { id } = req.params
+
+  const SQL = 'DELETE FROM car_announcements WHERE id= ?'
+  database.query(SQL, id, (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+  })
+})
 module.exports = router

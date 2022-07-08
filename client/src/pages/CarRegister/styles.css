@@ -10,22 +10,18 @@
   color: rgb(128,223,206);
 }
 
-
+/* Register Form */
 .register-fields{
   display: flex;
   flex-direction: column;
-
   background-color:rgb(249,249,249);
-
-
   padding: 2rem 1rem;
 }
 
 .register-fields input, select{
-  /* height: 2.5rem; */
   border-radius: 2.5rem;
   border: 1px solid rgb(0,0,0);
-  padding: 10px;
+  padding: 0.63rem 1rem;
   font-size: 1rem;
   line-height: 1.5rem;
 }
@@ -39,7 +35,6 @@
 @media(min-width: 767px){
   .register-fields{
     background-color: rgb(236,236,236);
-    /* padding: 2rem 5rem; */
     margin: 2rem 3rem;
   }
 
