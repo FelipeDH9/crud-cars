@@ -1,19 +1,32 @@
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useState, useEffect } from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { TbListSearch } from 'react-icons/tb'
+
+import CarCard from '../../components/CarCard/CarCard'
+import FavoriteCarCard from '../../components/FavoriteCarCard/FavoriteCarCard'
 
 import './styles.css'
 
 function Home() {
-  const [carProperty, setCarProperty] = useState()
+  const [cars, setCars] = useState([])
+  const [favoriteCars, setFavoriteCars] = useState([])
 
-  function print() {
-    console.log(carProperty)
+  function searchDatabase() {
+    axios.get('http://localhost:4731/get-data').then(response => {
+      console.log(response.data)
+      setCars(response.data)
+      console.log('cars', cars)
+    })
+    // nessa função vamos buscar na database inteira e atribuir as linhas dentro desse array
+    // se tal linha tiver o is_favorite como 1 então ela será colocada dentro do estado favoriteCars, que será mapeada na seção favoritos
+    // essa função será feita no useEffect, para pegar na database sempre que atualizar a página
+    console.log('buscar no banco de dados')
   }
 
-  async function search() {
-    console.log('')
-  }
+  useEffect(() => {
+    searchDatabase()
+  }, [])
 
   return (
     <div className="main">
@@ -54,15 +67,44 @@ function Home() {
         </div>
 
         <div className="favorites">
-          <h2>Meus Favoritos</h2>
+          <h2 className="title">Meus Favoritos</h2>
           <p>
             Map para pegar apenas os que são favoritos, será uma propriedade do
             objeto na database
           </p>
+          <div className="cards-wrapper">
+            {cars?.map(
+              car =>
+                car.is_favorite && (
+                  <CarCard
+                    key={car.id}
+                    name={car.name}
+                    price={car.price}
+                    description={car.description}
+                    year={car.year}
+                    color={car.color}
+                  />
+                )
+            )}
+          </div>
         </div>
         <div className="my-car-announces">
-          <h2>Meus Anúncios</h2>
-          <p>Map para pegar todos os anuncios</p>
+          <h2 className="title">Meus Anúncios</h2>
+          <div className="cards-wrapper">
+            {cars?.map(
+              car =>
+                !car.is_favorite && (
+                  <CarCard
+                    key={car.car_id}
+                    name={car.name}
+                    price={car.price}
+                    description={car.description}
+                    year={car.year}
+                    color={car.color}
+                  />
+                )
+            )}
+          </div>
         </div>
       </div>
     </div>

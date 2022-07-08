@@ -18,27 +18,6 @@ app.get('/', function (request, response) {
   })
 })
 
-// app.post('/register', async function (request, response) {
-//   const { name } = request.body
-//   const { brand } = request.body
-//   const { year } = request.body
-//   const { description } = request.body
-//   const { price } = request.body
-//   const { car_id } = request.body
-//   const { color } = request.body
-
-//   const sql =
-//     'INSERT INTO car_announcements (name, brand, year, description, price, car_id, color) VALUES ( ?, ?, ?, ?, ?, ?, ?)'
-
-//   database.query(
-//     sql,
-//     [name, brand, year, description, price, car_id, color],
-//     (error, result) => {
-//       console.log(error)
-//     }
-//   )
-// })
-
 app.listen(port, () => {
   console.log(
     `🔥 Server started on port http://localhost:${port} at ${new Date()}`

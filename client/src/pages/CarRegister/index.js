@@ -13,21 +13,10 @@ function CarRegister() {
   const [carId, setCarId] = useState()
   const [color, setColor] = useState()
 
-  // function registerCar() {
-  //   console.log('name', name)
-  //   console.log('brand', brand)
-  //   console.log('year', year)
-  //   console.log('descri', description)
-  //   console.log('price', price)
-  //   console.log('placa', carId)
-  //   console.log('cor', color)
-  //   // window.location.pathname = '/'
-  // }
-
   function submit() {
     axios
       .post('http://localhost:4731/register', {
-        name: name,
+        name,
         brand,
         year,
         description,
@@ -38,7 +27,6 @@ function CarRegister() {
       .then(response => {
         console.log(response)
       })
-    window.location.pathname = '/'
   }
 
   return (

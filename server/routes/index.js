@@ -24,19 +24,33 @@ router.post('/register', function (request, response) {
       return response.status(401).json({ message: 'Please fill all fields!' })
     }
 
-    const sql =
-      'INSERT INTO car_announcements (name, brand, year, description, price, car_id, color) VALUES ( ?, ?, ?, ?, ?, ?, ?)'
+    if (name && brand && year && description && price && car_id && color) {
+      const sql =
+        'INSERT INTO car_announcements (name, brand, year, description, price, car_id, color) VALUES ( ?, ?, ?, ?, ?, ?, ?)'
 
-    database.query(
-      sql,
-      [name, brand, year, description, price, car_id, color],
-      (error, result) => {
-        console.log(error)
-      }
-    )
+      database.query(
+        sql,
+        [name, brand, year, description, price, car_id, color],
+        (error, result) => {
+          console.log(error)
+        }
+      )
+      console.log('mandou para o banco')
+    }
   } catch (error) {
     return response.status(500).json({ message: error.message })
   }
+})
+
+router.get('/get-data', function (request, response) {
+  const sql = 'SELECT * from car_announcements'
+  database.query(sql, (error, result) => {
+    if (error) {
+      console.log(error)
+    } else {
+      response.send(result)
+    }
+  })
 })
 
 module.exports = router

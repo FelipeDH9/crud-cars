@@ -8,3 +8,7 @@ html{
   min-height: 100%;
   background-color: rgb(236,236,236);
 }
+
+p,h1, h2, h3, h4, input, label, div{
+  font-family: 'Inter', sans-serif;
+}

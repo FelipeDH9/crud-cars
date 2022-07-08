@@ -1,7 +1,7 @@
 .container{
   margin-top: 2rem;
   padding: 2rem 15px;
-  margin: 0 10rem;
+  margin: 0 8rem;
   background-color:rgb(249,249,249);
   min-height: 100%;
 }
@@ -11,6 +11,10 @@
 }
 
 /* Search Car Input */
+.title{
+  text-align: center;
+  margin-top: 1rem;
+}
 .search-wrapper{
   display: flex;
   align-items: center;
@@ -69,6 +73,12 @@
 
 .center{
   display: flex;
+  justify-content: center;
+}
+
+.cards-wrapper{
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
