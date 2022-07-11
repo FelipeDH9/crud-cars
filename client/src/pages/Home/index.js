@@ -5,6 +5,7 @@ import { TbListSearch } from 'react-icons/tb'
 
 import CarCard from '../../components/CarCard/CarCard'
 import FavoriteCarCard from '../../components/FavoriteCarCard/FavoriteCarCard'
+import ToTopButton from '../../components/ToTopButton'
 
 import './styles.css'
 
@@ -103,6 +104,7 @@ function Home() {
             )}
           </div>
         </div>
+        <ToTopButton />
       </div>
     </div>
   )

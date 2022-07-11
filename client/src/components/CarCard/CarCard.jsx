@@ -8,8 +8,7 @@ import {HiOutlineHeart} from 'react-icons/hi'
 import './styles.css'
 
 function CarCard(props){
-  const [fontColor, setFontColor] = useState()
-  const [cardColor, setCardColor] = useState()
+
 
   function handleFavorite() {
     axios.post(`http://localhost:4731/favorite/${props.id}`, {
@@ -30,18 +29,6 @@ function CarCard(props){
     window.location.href = '/'
   }
 
-  function changeColor(){
-    setCardColor(props.color)
-    if(cardColor === '#646363'){
-      setFontColor('#ffffff')
-    } else{
-      setFontColor('#000000')
-    }
-  }
-  
-  useEffect(() => {
-    changeColor()
-  }, [])
 
   return(
     <div className='card' style={{backgroundColor: props.color}}>
@@ -51,10 +38,10 @@ function CarCard(props){
         <HiOutlineHeart  onClick={()=>handleFavorite()} className='header-icons'/>
       </div>
       <div className='content'>
-        <p style={{color: fontColor}}><strong>{props.name}</strong></p>
-        <p style={{color: fontColor}}><strong>Preço:</strong> {props.price}</p>
-        <p style={{color: fontColor}}><strong>Descrição:</strong> {props.description}</p>
-        <p style={{color: fontColor}}><strong>Ano:</strong> {props.year}</p>
+        <p ><strong>{props.name}</strong></p>
+        <p ><strong>Preço:</strong> {props.price}</p>
+        <p ><strong>Descrição:</strong> {props.description}</p>
+        <p ><strong>Ano:</strong> {props.year}</p>
         {/* <p><strong>Cor:</strong></p> */}
       </div>
     </div>

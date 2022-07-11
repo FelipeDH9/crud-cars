@@ -2,7 +2,7 @@ import './styles.css'
 import { AiOutlineArrowUp } from 'react-icons/ai'
 import { useState } from 'react'
 
-export function ToTopButton() {
+function ToTopButton() {
   const [visible, setVisible] = useState(false)
 
   function toogleVisible() {
@@ -30,3 +30,5 @@ export function ToTopButton() {
     />
   )
 }
+
+export default ToTopButton
